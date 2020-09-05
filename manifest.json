@@ -1,0 +1,11 @@
+{
+    "name": "Links Comissão Atlante",
+    "short_name": "Links comissão",
+    "description": "Links da comissao",
+    "theme_color": "#fff",
+    "background_color": "white",
+    "display": "standalone",
+    "Scope": "./",
+    "start_url": "index.html",
+    "splash_pages": null
+  }
