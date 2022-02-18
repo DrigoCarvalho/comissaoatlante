@@ -24,6 +24,10 @@
           <h1>@comissao.atlante</h1>
           <p>Acesse aqui nossos conteúdos!</p>
         </div>
+        <div class="countdown-div">
+          <div class="countdown-title">Contagem regressiva para o nosso tão sonhado BAILE</div>
+          <div id="countdown"></div>
+        </div>
       </div>
       <div class="con-menu">
         <button onclick="handleClick(event, 'con-links')" class="active">
@@ -284,6 +288,7 @@
       </div>
     </div>
   </body>
+
   <script>
     const user = document.querySelector(".con-user");
     const menu = document.querySelector(".con-menu");
@@ -335,6 +340,30 @@
       }
     });
   </script>
+
+  <script>
+    var countDownDate = new Date("Sep 3, 2022 22:00:00").getTime();
+
+    var x = setInterval(function() {
+      var now = new Date().getTime();
+
+      var distance = countDownDate - now;
+
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
+      + minutes + "m " + seconds + "s ";
+
+      if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("countdown").innerHTML = "É HOJE!!!!";
+      }
+    }, 1000);
+  </script>
+
   <style>
     body {
       --primary: 119, 29, 29;
@@ -406,7 +435,6 @@
       width: 100%;
       position: relative;
       z-index: 10;
-      box-shadow: 0px 15px 20px -5px rgba(0, 0, 0, 0.08);
       border-radius: 0px 0px 30px 30px;
     }
     .con-menu button {
@@ -561,6 +589,17 @@
     }
     .con-links a span p {
       font-size: 0.8rem;
+    }
+    .countdown-div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+    .countdown-title {
+      margin-right: 10px;
     }
   </style>
 </html>
